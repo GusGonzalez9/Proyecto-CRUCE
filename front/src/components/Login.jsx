@@ -54,7 +54,9 @@ export default function SignIn() {
 
   const history = useHistory();
   const statusLogin = useSelector((state) => state.animations.statusLogin);
-  const isLoadingLogin = useSelector((state) => state.animations.isLoadingLogin);
+  const isLoadingLogin = useSelector(
+    (state) => state.animations.isLoadingLogin
+  );
   const errorBack = useSelector((state) => state.user.errorBack);
   const user = useSelector((state) => state.user.user);
 
@@ -107,7 +109,9 @@ export default function SignIn() {
         <Typography component="h1" variant="h5">
           Iniciar Sesión
         </Typography>
-        {isLoadingLogin ? <CircularProgress style={{ margin: "25px auto" }} /> : null}
+        {isLoadingLogin ? (
+          <CircularProgress style={{ margin: "25px auto" }} />
+        ) : null}
 
         {Object.keys(errorLoginFront).length ? (
           <Alert severity="error" style={{ margin: "25px auto" }}>
@@ -148,14 +152,26 @@ export default function SignIn() {
             {...userPassword}
             className={classInput.password}
           />
-          <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.submit}
+          >
             Enviar
           </Button>
           <Grid container>
             <Grid item>
-              <RLink style={{ color: "#3f51b5" }} to="/registro" >  {"¿No tiene una cuenta? Regístrese "}</RLink>
+              <RLink style={{ color: "#3f51b5" }} to="/registro">
+                {" "}
+                {"¿No tiene una cuenta? Regístrese "}
+              </RLink>
               {"|"}
-              <RLink style={{ color: "#3f51b5" }} to="/reset"> {"¿Olvidaste tu contraseña?"} </RLink>
+              <RLink style={{ color: "#3f51b5" }} to="/reset">
+                {" "}
+                {"¿Olvidaste tu contraseña?"}{" "}
+              </RLink>
             </Grid>
           </Grid>
         </form>
